@@ -1,7 +1,8 @@
 # makeup-workspace
 workspace for quick layout development
 
-v0.1
+v0.2
+
 =====
 ## merge
 [Bitbucket: 3-way merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
