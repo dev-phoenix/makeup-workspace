@@ -1,7 +1,7 @@
 # makeup-workspace
 workspace for quick layout development
 
-v0.3
+v1.0
 
 =====
 ## merge

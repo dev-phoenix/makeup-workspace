@@ -1,0 +1,42 @@
+
+/*
+come styles
+*/
+/*
+font-family: 'Inter', sans-serif;
+font-family: 'Oxanium', cursive;
+font-family: 'Work Sans', sans-serif;
+*/
+// *,*::after,*::before{
+//     margin: 0;
+//     padding: 0;
+//     z-index: 20;
+// }
+// .h1{
+//     z-index: 30;
+//     z-index: 30;
+//     color:red}
+
+// .h2{
+//     color: greenyellow;
+// }
+
+
+/* Swiper block */
+.auctions-slider
+{
+    position: relative;
+    overflow: visible;
+}
+.swiper-button-prev1,
+.swiper-button-next1
+{
+    position: absolute;
+    top: -20px;
+    right: 100px;
+}
+.swiper-button-prev1
+{
+    right: 200px;
+}
+/* / Swiper block */
