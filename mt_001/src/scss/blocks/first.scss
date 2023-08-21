@@ -1,0 +1,520 @@
+.first {
+    padding-top: 37px;
+    min-height: 100%;
+    position: relative;
+
+    .bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 150%;
+
+            background-image: url('../../img/bg_light/1_nft.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        // &.first_wrapp{
+            
+        //     // opacity: 0.55;
+        //     // background: linear-gradient(180deg, #1C121F 7.81%,
+        //     //  rgba(28, 18, 31, 0.21) 87.15%), url(<path-to-image>),
+        //     //   lightgray -342.571px 0px / 282.971% 183.129% no-repeat;
+        //     // background-blend-mode: normal, color-dodge;
+        // }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        @media(max-width: 850px){
+            opacity: 0.55;
+            background: url('../img/bg_title.png') no-repeat;
+            // background-size: contain;
+            background-size: cover;
+            // background-position: top;
+
+            width: 100%;
+            max-width: 100%;
+            height: 320px;
+            top: auto;
+            /* crazy bottom*/
+            bottom: calc( 0px + 113px + 680px + 30px);
+        }
+        @media(max-width: 400px){
+            height: 300px;
+            bottom: calc( 0px + 113px + 500px + 30px);
+        }
+    }
+
+    &::after {
+        // z-index: 1;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        // max-width: 620px;
+        max-width: 770px;
+        max-width: calc( 50% - 30px );
+        width: 50%;
+        height: 100%;
+
+        background: rgba(79, 70, 78, 0.45);
+        backdrop-filter: blur(15px);
+        /* Note: backdrop-filter has minimal browser support */
+
+        @media(max-width: 1500px){
+            max-width: calc( 50% - 15px );
+        }
+        @media(max-width: 1475px){
+            max-width: 50%;
+        }
+
+        @media(max-width: 850px){
+            width: 100%;
+            max-width: 100%;
+            height: 680px;
+            top: auto;
+            /* crazy bottom*/
+            bottom: calc( 0px + 113px + 30px );
+            // bottom:  60px ;
+        }
+        @media(max-width: 400px){
+            height: 500px;
+        }
+    }
+}
+
+.first__main {
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+
+    @media(max-width: 850px){
+        flex-direction: column;
+    }
+}
+.first__item {
+    max-width: 700px;
+    @media(max-width: 1515px){
+        margin-right: 20px;
+    }
+    @media(max-width: 1475px){
+        max-width: 50%;
+        width: 50%;
+    }
+    @media(max-width: 850px){
+        width: 100%;
+        max-width: 100%;
+        margin-right: 0px;
+    }
+}
+
+.h1 {
+
+    /* Display Text/Header extra Big */
+    
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 85px;
+    line-height: 130px;
+    /* or 153% */
+    color: $white2;
+    padding-top: 35px;
+    filter: drop-shadow(0px 0px 30px rgba(124, 118, 219, 0.75));
+    // filter: drop-shadow(0px 0px 69px 30px rgba(124, 118, 219, 0.75));
+
+    span {
+        color: $yellow;
+    }
+
+    @media(max-width: 1475px){
+        font-size: 70px;
+        line-height: 150%;
+    }
+    @media(max-width: 1300px){
+        font-size: 50px;
+        line-height: 150%;
+    }
+    @media(max-width: 850px){
+        text-align: center;
+    }
+    @media(max-width: 400px){
+        font-family: Oxanium;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 60px;
+    }
+}
+
+.first__btns {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    margin: 75px 0 120px;
+    gap: 48px;
+    @media(max-width: 1100px){
+        margin: 50px 0 100px;
+    }
+    @media(max-width: 900px){
+        margin: 50px 0 50px;
+    }
+    @media(max-width: 850px){
+        justify-content: center;
+    }
+    @media(max-width: 450px){
+        gap: 20px;
+    }
+}
+
+.first__btn, .first__btn2 {
+    // height: 84px;
+    padding: 24px 76px;
+
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    /* identical to box height, or 129% */
+
+    @media(max-width: 1475px){
+        padding: 15px 45px;
+    }
+    @media(max-width: 900px){
+        padding: 15px 30px;
+    }
+    @media(max-width: 850px){
+        // width: 155px;
+        flex-basis: 30%;
+        height: 54px;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.9px;
+        text-align: center;
+    }
+    @media(max-width: 650px){
+        flex-basis: 48%;
+    }
+    
+}
+.first__btn {
+    background-color: $yellow;
+    color: #000000;
+    transition: all .2s linear;
+
+    &:hover {
+        background-color: #000000;
+        color: $white;
+    }
+    
+}
+
+.first__btn2 {
+    color: $white2;
+    background: rgba(233, 215, 167, 0.1);
+    /* Primary color */
+    border: 1px solid $yellow;
+    transition: all .2s linear;
+
+    &:hover {
+        -webkit-box-shadow: 0px 0px 69px 30px rgba(124, 118, 219, 0.75);
+        -moz-box-shadow: 0px 0px 69px 30px rgba(124, 118, 219, 0.75);
+        box-shadow: 0px 0px 69px 30px rgba(124, 118, 219, 0.75);
+    }
+    @media (max-width: 850px) {
+        border: 1px solid var(--primary-color, #FFCE4E);
+        background: #594846;
+    }
+    
+}
+@media (hover: hover) {
+    .button {
+        padding-right: 1rem;
+        cursor: pointer;
+    }
+
+    .button svg {
+        opacity: 0;
+    }
+
+    .button:hover {
+        padding-right: 3rem;
+    }
+
+    .button:hover svg {
+        opacity: 1;
+    }
+}
+
+.first__numbers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media(max-width: 850px){
+        display: none;
+    }
+    &.first__numbers_2 {
+        display: none;
+        @media(max-width: 850px){
+            padding-top: 30px;
+            display: flex;
+        }
+    }
+}
+.first__number {
+    font-family: 'Oxanium';
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 78px;
+    /* identical to box height */
+    color: $white2;
+
+    @media(max-width: 1100px){
+        font-size: 40px;
+    }
+    p {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 35px;
+        /* identical to box height, or 148% */
+        color: #9B9E9A;
+        @media(max-width: 1100px){
+            font-size: 20px;
+        }
+    }
+}
+
+/*
+=================== NFT
+*/
+
+.first__nft {
+    background: url('../img/nft-item.jpg');
+    background-size: cover;
+    max-width: 550px;
+    width: 100%;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 0 0 0;
+    margin: 0 75px 100px 0;
+
+    @media(max-width: 1475px){
+        max-width: 50%;
+        width: 50%;
+    }
+    @media(max-width: 1470px){
+        margin-left: 20px;
+        // margin-left: 75px;
+        margin: 0 0px 100px 40px;
+    }
+    @media(max-width: 1100px){
+        height: 550px;
+        margin: 0 0px 45px 40px;
+    }
+    @media(max-width: 850px){
+        width: 100%;
+        max-width: 400px;
+        margin-left: 0px;
+        align-self: center;
+        background: url('../img/nft_mobile.jpg');
+        background-size: cover;
+    }
+    @media(max-width: 400px){
+        max-width: 280px;
+        max-height: 380px;
+    }
+}
+
+.first-nft__header {
+
+    background: linear-gradient(92.8deg, rgba(255, 137, 61, 0.09) -52.37%, rgba(250, 250, 250, 0.9) 137.41%);
+    opacity: 0.95;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(22.5px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    padding: 18px 35px;
+    width: 90%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media(max-width: 850px){
+        padding: 10px 20px;
+        border-radius: 5px;
+        opacity: 0.95;
+        background: linear-gradient(145deg, rgba(255, 137, 61, 0.09) 0%, rgba(250, 250, 250, 0.90) 100%);
+        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.10);
+        backdrop-filter: blur(22.5px);
+    }
+}
+
+.nft-header__title {
+    font-family: 'Oxanium';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
+    
+    color: #E4DEE7;
+    // @media(max-width: 850px){
+    // }
+}
+.dd .nft-header__title {
+    @media(max-width: 850px){
+        font-size: 16px;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 1.28px;
+    }
+}
+.nft-header__numbers {
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    
+    color: #FFFFFF;
+    @media(max-width: 850px){
+        font-size: 22px;
+        line-height: normal;
+    }
+}
+.first-nft__footer {
+    width: 100%;
+    background: #B5C8DB;
+    background: #FFFFFF;
+    // backdrop-filter: blur(13.5px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+    border-radius: 0px;
+    // background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px 40px 35px 60px;
+
+    @media(max-width: 1100px){
+        padding: 20px 25px 20px 40px;
+    }
+}
+.nft-footer__title {
+    font-family: 'Oxanium';
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 35px;
+    /* identical to box height */
+    
+    letter-spacing: 0.07em;
+    
+    /* 01 */
+    
+    color: #16091B;
+}
+// .nft-footer {
+//     // margin-left: 60px;
+// }
+.nft-footer__nick {
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+    /* identical to box height, or 148% */
+    
+    
+    color: #594D5E;
+}
+.nft-footer__btn {
+    /* Primary color */
+    
+    background: $yellow;
+    backdrop-filter: blur(22.5px);
+    /* Note: backdrop-filter has minimal browser support */
+    padding: 23px 45px;
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    // margin-right: 40px;
+    transition: all .3s linear;
+
+    &:hover {
+        -webkit-box-shadow: 0px 0px 70px 30px rgba(214,11,214,1);
+        -moz-box-shadow: 0px 0px 70px 30px rgba(214,11,214,1);
+        box-shadow: 0px 0px 70px 30px rgba(214,11,214,1);
+    }
+
+    @media(max-width: 768px){
+        padding: 10px 25px;
+        color: #000;
+        font-family: Work Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+}
+
+.first__arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    // transform: translateX(25%) translateY(60%);
+    transform: translateX(-25%) translateY(60%);
+    width: 156px;
+    height: 156px;
+    border-radius: 50%;
+
+    background: rgba(109, 91, 114, 0.4);
+    box-shadow: 0px 14px 79px rgba(134, 19, 165, 0.1);
+    backdrop-filter: blur(20px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    img {
+        // width: 45px;
+        height: 30%;
+    }
+    transition: all .2s linear;
+
+    &:hover {
+        background: darken(rgba(109, 91, 114, 0.4), 20);
+    }
+    @media(max-width: 1475px){
+        transform: translateX(-50%);
+        transform: translateX(-50%) translateY(60%);
+    }
+    @media(max-width: 850px){
+        display: none;
+    }
+}

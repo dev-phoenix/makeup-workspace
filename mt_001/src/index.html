@@ -1,0 +1,23 @@
+---
+layout: default
+title: Document 1234
+---
+
+<main class="main dev">
+    <div class="first">
+        <div class="bg"></div>
+@@if (servers.length > 1) { @@include('html/header_servers.html') }
+@@include('html/header.html', {"hi":"Hiii"})
+@@include('html/components/first.html')
+    </div>
+    @@include('html/components/makeup_version.html')
+    @@include('html/components/companies.html')
+    <!-- @@include('html/components/auctions.html')
+    @@include('html/components/how.html')
+    @@include('html/components/collections.html')
+    @@include('html/components/categories.html')
+    @@include('html/components/creators.html')
+    @@include('html/components/subscribe.html') -->
+    
+    @@include('html/components/greed-lines.html')
+</main>

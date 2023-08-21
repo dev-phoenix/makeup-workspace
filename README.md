@@ -1,7 +1,7 @@
 # makeup-workspace
 workspace for quick layout development
 
-v0.2
+v1.0
 
 =====
 ## merge
@@ -24,4 +24,11 @@ git commit -m "Make some super-stable changes to main"
 # Merge in the new-feature branch
 git merge new-feature
 git branch -d new-feature
+```
+
+## git config ssh url
+[Changing Git Remote to SSH](https://devconnected.com/how-to-change-git-remote-origin/)
+
+``` bush
+git remote set-url origin git@github.com:YOUR_ACCOUNT/YOUR_PROJECT.git
 ```

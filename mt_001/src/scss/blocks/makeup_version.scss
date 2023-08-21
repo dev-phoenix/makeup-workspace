@@ -1,0 +1,13 @@
+
+
+.mk-v h4 {
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 1.5em;
+    text-align: right;
+    padding: 0 50px;
+    margin: 10px;
+    @media (max-width: 850px){
+        text-align: center;
+    }
+}
