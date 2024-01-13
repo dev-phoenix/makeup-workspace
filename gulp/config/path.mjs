@@ -14,6 +14,7 @@ export const path = {
         js: destPath + 'js/',
         css: destPath + 'css/',
         img: destPath + 'img/',
+        img_sprite: destPath + '',
         fonts: destPath + 'fonts/',
     },
     src: { //Пути откуда брать исходники
@@ -31,6 +32,7 @@ export const path = {
         js: srcPath + 'js/**/*.js',
         css: srcPath + 'scss/**/*.scss',
         img: srcPath + 'img/**/*.' + extImg,
+        svg: srcPath + 'img/icon/**/*.{svg,}',
         fonts: srcPath + 'fonts/**/*.' + extFonts
     },
     base: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать

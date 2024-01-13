@@ -1,14 +1,19 @@
 ---
 layout: default
-title: Document 1234
+title: WSD Demo
+description: WebStudioDreams Demo Makeup
+keywords: clientorganizer, wsd, WebStudioDreams, Demo, Makeup
+_site_name: clientorganizer.ru
+author: WSD
+twitter_author: no
 ---
 
 <main class="main dev">
     <div class="first">
         <div class="bg"></div>
-@@if (servers.length > 1) { @@include('html/header_servers.html') }
-@@include('html/header.html', {"hi":"Hiii"})
-@@include('html/components/first.html')
+        @@if (servers.length > 1) { @@include('html/header_servers.html') }
+        @@include('html/header.html', {"hi":"Hiii"})
+        @@include('html/components/first.html')
     </div>
     @@include('html/components/makeup_version.html')
     @@include('html/components/companies.html')
