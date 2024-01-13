@@ -26,17 +26,28 @@ import webpack from "webpack-stream";
 import sourcemaps from 'gulp-sourcemaps'
 import svgSprite from "gulp-svg-sprite";
 
+import replace from "gulp-replace";
+import ifPlugin from "gulp-if";
+import debug from "gulp-debug";
+
 // import pkg from './gulp/config/path.mjs'
 import { path, srcPath, destPath } from './gulp/config/path.mjs'
 // reload = browserSync.reload;
+
+const plugins = {
+	replace: replace,
+	if: ifPlugin
+}
 
 console.log(222,process.argv,333)
 global.app = {
 	isBuild: process.argv.includes('--build'),
 	isDev: !process.argv.includes('--build'),
 	path: path,
-	gulp: gulp
-	// plugins: plugins
+	gulp: gulp,
+	plugins: plugins,
+    port: 9001, // main 9000
+    portui: 3001 // main 3000
 }
 
 var useTunnels=false;
@@ -133,8 +144,8 @@ function serv_relod(servers,stype){
     return s
 }
 function _css(site, i, arr){
-    var mode = app.isBuild ? 'Production' : 'Development'
-    console.log('Webpack mode (css):', mode)
+    // var mode = app.isBuild ? 'Production' : 'Development'
+    // console.log('Webpack mode (css):', mode)
     // console.log(servers)
     return src(site + path.src.css,{base: site + path.base.css, sourcemaps: true })
     // return src(site + path.src.css,{base: site + path.base.css })
@@ -144,12 +155,20 @@ function _css(site, i, arr){
                 message: "Error: <%= error.message %>"
             })
         ))
+
         .pipe(serv_relod(servers[i]), 'CSS')
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(autoprefixer())
         .pipe(cssbeautify())
+        // .pipe(plumber.stop())
+		.pipe(
+			app.plugins.if(
+				app.isBuild,
+				app.plugins.replace('../../','../')
+			))
         .pipe(sourcemaps.write('.'))
+        // .pipe(sourcemaps.write('.',{includeContent: false, sourceRoot: '/dest/css'}))
         // .pipe(cssmap())
         .pipe(dest(site + path.build.css))
         // .pipe(servers[i].reload({stream: true}))
@@ -160,6 +179,7 @@ function _css(site, i, arr){
                 removeAll: true
             }
         }))
+
         .pipe(removeComments())
         .pipe(rename({
             suffix: '.min',
@@ -182,6 +202,7 @@ const css = (done)=>{
 
 function _js(site, i, arr){
     var mode = app.isBuild ? 'production' : 'development'
+    // mode =  'production'
     console.log('webpack mode:', mode)
     return src(site + path.src.js,{base: site + path.base.js, sourcemaps: true })
         .pipe(plumber(
@@ -222,6 +243,13 @@ const js = (done)=>{
 
 function _images(site, i, arr){
     return src(site + path.src.img,{base: site + path.base.img})
+        .pipe(plumber(
+                    notify.onError({
+                        title: "images - " + i,
+                        message: "Error: <%= error.message %>"
+                    })
+                ))
+        // .pipe(debug())
         // .pipe(imagemin([
         //         gifsicle({interlaced: true}),
         //         mozjpeg({quality: 75, progressive: true}),
@@ -243,6 +271,7 @@ function _images(site, i, arr){
         // //     })
         // ]))
         .pipe(dest(site + path.build.img))
+        .pipe(debug())
         .pipe(servers[i].reload({stream: true}));
 }
 const images = (done)=>{
@@ -252,6 +281,7 @@ const images = (done)=>{
 
 // http://localhost:9000/img/stack/sprite.stack.html
 function _svgImages(site, i, arr){
+    console.log('>>> _svgImages');
     return src(site + path.src.svg,{base: site + path.base.img})
 	.pipe(plumber(
 		notify.onError({
@@ -268,9 +298,17 @@ function _svgImages(site, i, arr){
 		}
 	}))
     .pipe(dest(site + path.build.img))
-    .pipe(servers[i].reload({stream: true}));
+    // .pipe(dest(site + path.build.img_sprite))
+    .pipe(servers[i].reload({stream: true}))
+    .pipe(notify({ // Add gulpif here
+        title: 'Gulp SVG',
+        subtitle: 'success',
+        message: 'SVG task reload',
+        sound: "Beep"
+    }));
 }
 const svgIcon = (done) => {
+    console.log('>>> svgIcon');
     sites.forEach(_svgImages)
     done()
 }
@@ -307,10 +345,10 @@ function _webserver_conf(site, i, arr){
     //        host: (site.substr(0,(site.length-1)))+'.localhost',
             host: site.replace('/','.') + 'localhost',
     //        host: 's'+(i+1)+'.localhost',
-            port: 9000+i,
+            port: app.port+i, //9000+i,
             ui: {
                 host: site.replace('/','.') + 'localhost',
-                port: 3000+i
+                port: app.portui+i, // 3000+i
             },
             logPrefix: "Frontend_Devil " + site + " " +  (i)
     //        logPrefix: "Frontend_Devil_"+i
@@ -362,6 +400,7 @@ function onChange(path, stats) {
 }
 function onAdd(path, stats) {
     console.log(`File ${path} was added`);
+// console.log(stats);
 }
 function onUnlnk(path, stats) {
     console.log(`File ${path} was removed`);
