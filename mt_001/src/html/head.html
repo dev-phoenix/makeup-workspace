@@ -32,4 +32,9 @@
         <meta name="twitter:description" content="@@description">
 
     </head>
-    <body>
+    <body class=" dev -dev-div">
+
+        @@if( grid_on == '1'){
+            @@include('tools/greed-lines.html', 
+                {"gl":"@@grid_line.gl", "gc":"@@grid_line.gc", "gb":"@@grid_line.gb", "g12":"@@grid_line.g12", "g6":"@@grid_line.g6", "g4":"@@grid_line.g4", "g2":"@@grid_line.g2", "g0":"@@grid_line.g0" })
+        }

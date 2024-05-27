@@ -1,0 +1,42 @@
+<!-- greed-lines -->
+
+<input type="checkbox" name="" id="grid_tools_view" class="grid_tools_view_check "><label for="grid_tools_view" class="gts_label grid_tools_view_label">Tools</label>
+<input type="checkbox" name="" id="grid_center_view" @@if( context.gl == "1" ){checked} class="gts_check grid_center_view_check"><label for="grid_center_view" class="gts_label grid_center_view_label">Center line</label>
+<input type="checkbox" name="" id="grid_container_view" @@if( context.gc == "1" ){checked} class="gts_check grid_container_view_check"><label for="grid_container_view" class="gts_label grid_container_view_label">Containers border</label>
+<input type="checkbox" name="" id="grid_box_view" @@if( context.gb == "1" ){checked} class="gts_check grid_box_view_check "><label for="grid_box_view" class="gts_label grid_box_view_label">Boxes border</label>
+<input type="checkbox" name="" id="grid_version_view" class="gts_check grid_version_view_check "><label for="grid_version_view" class="gts_label grid_version_view_label">Version</label>
+
+@@if(0){
+<div class="container">
+    <div class="grid_12_X_10">
+        <!-- .grid_12.grid_12_$*12[style="--num:$"] -->
+        <div class="grid_12 grid_12_1" style="--num:1"></div>
+        <div class="grid_12 grid_12_2" style="--num:2"></div>
+        <div class="grid_12 grid_12_3" style="--num:3"></div>
+        <div class="grid_12 grid_12_4" style="--num:4"></div>
+        <div class="grid_12 grid_12_5" style="--num:5"></div>
+        <div class="grid_12 grid_12_6" style="--num:6"></div>
+        <div class="grid_12 grid_12_7" style="--num:7"></div>
+        <div class="grid_12 grid_12_8" style="--num:8"></div>
+        <div class="grid_12 grid_12_9" style="--num:9"></div>
+        <div class="grid_12 grid_12_10" style="--num:10"></div>
+        <div class="grid_12 grid_12_11" style="--num:11"></div>
+        <div class="grid_12 grid_12_12" style="--num:12"></div>
+    </div>
+</div>
+}
+
+<input type="radio" name="grid_cols_view" id="grid_cols_view" @@if( context.g12 == "1" ){checked} value="12" class="gts_check grid_cols_view_check gn-12"><label for="grid_cols_view" class="gts_label grid_cols_view_label">Grid 12 columns</label>
+<input type="radio" name="grid_cols_view" id="grid_cols_view-2" @@if( context.g6 == "1" ){checked} value="6" class="gts_check grid_cols_view_check-2 gn-6"><label for="grid_cols_view-2" class="gts_label grid_cols_view_label-2">Grid 6 columns</label>
+<input type="radio" name="grid_cols_view" id="grid_cols_view-3" @@if( context.g4 == "1" ){checked} value="4" class="gts_check grid_cols_view_check-3 gn-4"><label for="grid_cols_view-3" class="gts_label grid_cols_view_label-3">Grid 4 columns</label>
+<input type="radio" name="grid_cols_view" id="grid_cols_view-4" @@if( context.g2 == "1" ){checked} value="2" class="gts_check grid_cols_view_check-4 gn-2"><label for="grid_cols_view-4" class="gts_label grid_cols_view_label-4">Grid 2 columns</label>
+<input type="radio" name="grid_cols_view" id="grid_cols_view-0" @@if( context.g0 == "1" ){checked} value="0" class="gts_check grid_cols_view_check-0 gn-0"><label for="grid_cols_view-0" class="gts_label grid_cols_view_label-0">Grid no columns</label>
+
+<div class="container grid">
+    <div class="grid_x" style="--gap:20px">
+        @@for(var i = 0; i<12; i++ ){
+            @@include('greed-lines_item.html',{"cou": `+12+`,"cou_i": `+i+`}) }
+    </div>
+</div>
+<div class="vertical-center"></div>
+<!-- / greed-lines -->

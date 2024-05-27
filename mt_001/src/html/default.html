@@ -1,4 +1,9 @@
-@@include('html/head.html', {"title":"{{ title }}","description":"{{ description }}","keywords":"{{ keywords }}","_site_name":"{{ _site_name }}","url":"{{ url }}","preview":"{{ preview }}", "twitter_author":"{{twitter_author}}"})
+@@include('html/head.html',
+    {"title":"{{ title }}","description":"{{ description }}","keywords":"{{ keywords }}",
+    "_site_name":"{{ _site_name }}","url":"{{ url }}","preview":"{{ preview }}", "twitter_author":"{{twitter_author}}",
+    "grid_line": {"gl":"{{ grid_line.gl }}","gc":"{{ grid_line.gc }}","gb":"{{ grid_line.gb }}",
+        "g12":"{{ grid_line.g12 }}","g6":"{{ grid_line.g6 }}","g4":"{{ grid_line.g4 }}",
+        "g2":"{{ grid_line.g2 }}","g0":"{{ grid_line.g0 }}" }, "grid_on": "{{grid_on}}" })
     {{> body}}
 @@include('html/footer.html', {"title":"{{ title }}"})
 

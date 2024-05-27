@@ -35,3 +35,38 @@ $media_sm: 'max-width: 600px';
 $media_sm2: 'max-width: 500px';
 $media_xs: 'max-width: 400px';
 
+
+// color-socks.ru 
+$container-width: 1440px;
+$height-header: 110px;
+$height-header-mob: 60px;
+$height-footer: 293px;
+$margin_top_footer: 64px;
+$base_margin_top_footer: 112px;
+:root {
+    --cont_width: $container-width;
+}
+$gap: 20px;
+$mob_width: 850px;
+$note_width: 1200px;
+
+$header_bg_color: #080808;
+$footer_bg_color: $header_bg_color;
+$bg_color: #141414;
+$bg_color_2: #202020;
+$color: #fff;
+$color_2: rgba(255, 255, 255, 0.50);
+$color_3: #0EF4F4;
+
+$menu_border_color: $color_3;
+$bredcrumb_sep_color: $color_3;
+$bredcrumb_color_hover: #0BD2D2;
+
+$btn_bg_color: #0BD2D2;
+$btn_bg_color2: $bg_color_2;
+$btn_bg_color2_hover: rgba(11, 210, 210, 0.20); // #0BD2D2DD // ?
+$btn_border_color: #0BD2D2;
+$btn_color: #141414;
+$btn_color_2: #202020;
+$btn_color_3: #fff;
+
