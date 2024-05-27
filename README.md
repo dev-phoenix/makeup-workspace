@@ -1,13 +1,13 @@
 # makeup-workspace
 workspace for quick layout development
 
-v1.0
+v1.1
 
 =====
 ## merge
 [Bitbucket: 3-way merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
 
-``` bush
+``` bash
 Start a new feature
 git checkout -b new-feature main
 # Edit some files
@@ -24,6 +24,9 @@ git commit -m "Make some super-stable changes to main"
 # Merge in the new-feature branch
 git merge new-feature
 git branch -d new-feature
+
+# Remove file from observation
+git rm --cached file\ name
 ```
 
 ## git config ssh url
