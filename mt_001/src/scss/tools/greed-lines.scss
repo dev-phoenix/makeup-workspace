@@ -1,0 +1,312 @@
+/* greed-lines.css */
+.dev {
+    .container {
+        // border: solid 1px red;
+    }
+}
+.dev{
+    ::after,
+    ::before,
+    div{
+        box-sizing: border-box;
+    }
+}
+.dev-div{
+    ::after,
+    ::before,
+    div{
+        border: 1px solid green;
+        box-sizing: border-box;
+    }
+}
+$grid_gap: 20px;
+$grid_gap: var(--gap);
+$grid_cou: 12;
+.grid_12_X_10 {
+    position: relative;
+    .grid_12 {
+        position: absolute;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        // left: calc( ( ( 100% / 12 ) * ( var(--num) - 1 ) ) );
+        left: calc( ( ( ( 100% + $grid_gap ) / $grid_cou ) * ( var(--num) - 1 ) ) );
+        left: calc( ( ( 100% - var(--cont_width) ) / 2 ) + ( ( ( ( var(--cont_width) + $grid_gap ) / $grid_cou ) * ( var(--num) - 1 ) ) ) );
+        margin-right: $grid_gap;
+        background-color: #ff000003;
+        background-color: #ff000009;
+        border: 0;
+        width: calc( ( ( 100% + $grid_gap ) / $grid_cou ) - $grid_gap );
+        width: calc( ( ( var(--cont_width) + $grid_gap ) / $grid_cou ) - $grid_gap );
+        // width: calc( ( ( 100% ) / 12 ) - 20px );
+        height: 100%;
+        min-height: $grid_gap;
+
+
+    }
+    :last-child {
+        margin: 0;
+    }
+}
+
+
+/* bound tools */
+$offset-tool:50px;
+.grid_tools_view_check,
+.grid_version_view_check,
+.grid_center_view_check,
+.grid_container_view_check,
+.grid_box_view_check{
+    position: fixed;
+    top: 20px;
+    top: calc(20px + $offset-tool);
+    right: 180px;
+    z-index: 1000;
+    &.grid_container_view_check{
+        top: calc(40px + $offset-tool);
+    }
+    &.grid_box_view_check{
+        top: 80px;
+        top: calc(60px + $offset-tool);
+    }
+    &.grid_version_view_check{
+        top: calc(200px + $offset-tool);
+    }
+    &.grid_tools_view_check{
+        top: calc(220px + $offset-tool);
+    }
+}
+
+.grid_tools_view_label,
+.grid_version_view_label,
+.grid_center_view_label,
+.grid_container_view_label,
+.grid_box_view_label{
+    position: fixed;
+    top: 20px;
+    top: calc(20px + $offset-tool);
+    right: 10px;
+    z-index: 1000;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: white;
+    // color: black;
+    mix-blend-mode: difference;
+
+    &.grid_container_view_label{
+        top: 40px;
+        top: calc(40px + $offset-tool);
+    }
+    &.grid_box_view_label{
+        top: 60px;
+        top: calc(60px + $offset-tool);
+    }
+    &.grid_version_view_label{
+        top: 60px;
+        top: calc(200px + $offset-tool);
+    }
+    &.grid_tools_view_label{
+        top: 60px;
+        top: calc(220px + $offset-tool);
+    }
+}
+
+.grid_box_view_check:checked ~ * h1 ,
+.grid_box_view_check:checked ~ * h2 ,
+.grid_box_view_check:checked ~ * h3 ,
+.grid_box_view_check:checked ~ * h4 ,
+.grid_box_view_check:checked ~ * h5 ,
+.grid_box_view_check:checked ~ * form ,
+.grid_box_view_check:checked ~ form ,
+.grid_box_view_check:checked ~ * svg ,
+.grid_box_view_check:checked ~ svg ,
+.grid_box_view_check:checked ~ * a ,
+.grid_box_view_check:checked ~ a ,
+.grid_box_view_check:checked ~ * header ,
+.grid_box_view_check:checked ~ * footer ,
+.grid_box_view_check:checked ~ header ,
+.grid_box_view_check:checked ~ footer ,
+.grid_box_view_check:checked ~ * ::after ,
+.grid_box_view_check:checked ~ * ::before ,
+.grid_box_view_check:checked ~ * div ,
+.grid_box_view_check:checked ~ ::after ,
+.grid_box_view_check:checked ~ ::before ,
+.grid_box_view_check:checked ~ div {
+    box-sizing: border-box;
+    border: 1px solid green;
+}
+
+.mk-v{display: none;}
+.grid_version_view_check:checked ~ * .mk-v,
+.grid_version_view_check:checked ~ .mk-v{display: block;}
+
+.vertical-center{display: none;}
+.grid_center_view_check:checked ~ .vertical-center{display: block;}
+
+.grid_container_view_check:checked ~ * .container ,
+.grid_container_view_check:checked ~ .container {
+    box-sizing: border-box;
+    border: solid 1px red;
+}
+// .dev {
+    #vertical-center.vertical-center {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 100%;
+        border: 0;
+        background-color: #f00;
+    }
+// }
+/* / bound tools */
+
+
+/* greed-lines 2 */
+$offset-tool: calc( $offset-tool + 60px );
+.container.grid{
+    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+
+    .grid_x{
+        display: none;
+        align-items: center;
+        justify-content: stretch;
+        gap: $grid_gap;
+
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        // position: fixed;
+        z-index: 1000;
+        max-width: $container-width;
+        width: 100%;
+        top: 0;
+
+        padding: 0 130px;
+        .grid_n{
+            display: none;
+            flex-grow: 1;
+            flex-shrink: 0;
+            background-color: #ff000029;
+            border: 0;
+            height: 100vh;
+            min-height: $grid_gap;
+            width: $grid_gap;
+        }
+    }
+}
+
+.grid_cols_view_check-0,
+.grid_cols_view_check-2,
+.grid_cols_view_check-3,
+.grid_cols_view_check-4,
+.grid_cols_view_check{
+    position: fixed;
+    top: 20px;
+    top: calc(20px + $offset-tool);
+    right: 180px;
+    z-index: 1000;
+
+    &.grid_cols_view_check-2{
+        top: 40px;
+        top: calc(40px + $offset-tool);
+    }
+    &.grid_cols_view_check-3{
+        top: 60px;
+        top: calc(60px + $offset-tool);
+    }
+    &.grid_cols_view_check-4{
+        top: 80px;
+        top: calc(80px + $offset-tool);
+    }
+    &.grid_cols_view_check-0{
+        top: calc(100px + $offset-tool);
+    }
+
+    &:checked ~ .container.grid .grid_x{
+        display: flex;
+    }
+    &.gn-0:checked ~ .container.grid{
+        display: none;
+    }
+    &.gn-12:checked ~ .container.grid .grid_x .grid_c_12{
+        display: block;
+    }
+    &.gn-6:checked ~ .container.grid .grid_x .grid_c_6{
+        display: block;
+    }
+    &.gn-4:checked ~ .container.grid .grid_x .grid_c_4{
+        display: block;
+    }
+    &.gn-2:checked ~ .container.grid .grid_x .grid_c_2{
+        display: block;
+    }
+}
+
+.grid_cols_view_label-0,
+.grid_cols_view_label-2,
+.grid_cols_view_label-3,
+.grid_cols_view_label-4,
+.grid_cols_view_label{
+    position: fixed;
+    top: 20px;
+    top: calc(20px + $offset-tool);
+    // right: 10px;
+    z-index: 1000;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: white;
+    // color: black;
+    mix-blend-mode: difference;
+
+    &.grid_cols_view_label-2{
+        top: 40px;
+        top: calc(40px + $offset-tool);
+    }
+    &.grid_cols_view_label-3{
+        top: 60px;
+        top: calc(60px + $offset-tool);
+    }
+    &.grid_cols_view_label-4{
+        top: 80px;
+        top: calc(80px + $offset-tool);
+    }
+    &.grid_cols_view_label-0{
+        top: calc(100px + $offset-tool);
+    }
+}
+
+.gts_label{
+    width: 170px;
+    right: 0;
+}
+
+.grid_tools_view_check:not(:checked) ~ .gts_check,
+// .grid_tools_view_check:checked ~ .grid_cols_view,
+.grid_tools_view_check:not(:checked) ~ .gts_label {
+    display: none;
+}
+.grid_tools_view_check,
+.grid_tools_view_label {
+    display: block;
+}
+.grid_tools_view_check:not(:checked) ~ .gts_label.grid_tools_view_label {
+    display: block;
+}
+
+/* / greed-lines 2 */
+
+/* / greed-lines.css */

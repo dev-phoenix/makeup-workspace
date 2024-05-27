@@ -1,3 +1,5 @@
 /node_modules
 /dest
+/mt_001/dest
+*copy.mjs
 package-lock.json

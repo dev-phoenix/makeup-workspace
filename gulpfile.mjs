@@ -14,6 +14,7 @@ const sass = gulpSass(dartSass)
 import cssnano from "gulp-cssnano"
 import uglify from "gulp-uglify"
 import plumber from "gulp-plumber"
+// import stop from "gulp-plumber" as plumber_stop
 import panini from "panini"
 // const imagemin = require("gulp-imagemin")
 import imagemin, {gifsicle, mozjpeg, optipng, svgo} from "gulp-imagemin"
@@ -62,6 +63,7 @@ var sites = [
     // 'd3/',
     'mt_001/',
     // 'mt_002/',
+    // 'tren_0001/',
 ];
 
 // инициализируем перезагрузку сайтов
@@ -167,18 +169,18 @@ function _css(site, i, arr){
 				app.isBuild,
 				app.plugins.replace('../../','../')
 			))
-        .pipe(sourcemaps.write('.'))
-        // .pipe(sourcemaps.write('.',{includeContent: false, sourceRoot: '/dest/css'}))
-        // .pipe(cssmap())
-        .pipe(dest(site + path.build.css))
-        // .pipe(servers[i].reload({stream: true}))
-        // .pipe(servers[i].reload({stream: true}))
         .pipe(cssnano({
             zindex: false,
             discardComments: {
                 removeAll: true
             }
         }))
+        .pipe(sourcemaps.write('.'))
+        // .pipe(sourcemaps.write('.',{includeContent: false, sourceRoot: '/dest/css'}))
+        // .pipe(cssmap())
+        .pipe(dest(site + path.build.css))
+        // .pipe(servers[i].reload({stream: true}))
+        // .pipe(servers[i].reload({stream: true}))
 
         .pipe(removeComments())
         .pipe(rename({
@@ -297,8 +299,8 @@ function _svgImages(site, i, arr){
 			}
 		}
 	}))
-    .pipe(dest(site + path.build.img))
-    // .pipe(dest(site + path.build.img_sprite))
+    .pipe(dest(site + path.build.img_sprite))
+    // .pipe(dest(site + path.build.img))
     .pipe(servers[i].reload({stream: true}))
     .pipe(notify({ // Add gulpif here
         title: 'Gulp SVG',

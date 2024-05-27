@@ -2,7 +2,7 @@
 
 
 const 
-    burgerTrigger = document.querySelector('.header__burger'),
+    burgerTrigger = document.querySelector('.menu-burger'),
     burgerClose = document.querySelector('.header__burger--close'),
     burgerItem = document.querySelector('.header__inner'),
     headerLinks = document.querySelectorAll('.header__link'),
@@ -13,12 +13,18 @@ function linkEvCl(e){
     body.classList.toggle('active');
 }
 
-burgerTrigger.addEventListener('click', linkEvCl)
+if(burgerTrigger)
+    burgerTrigger.addEventListener('click', linkEvCl)
 
-burgerClose.addEventListener('click', linkEvCl)
+if(burgerClose)
+    burgerClose.addEventListener('click', linkEvCl)
 
-headerLinks.forEach((item)=>{
-    item.addEventListener('click', linkEvCl)
-})
+if(burgerItem)
+    burgerClose.addEventListener('click', linkEvCl)
+
+if(headerLinks.length)
+    headerLinks.forEach((item)=>{
+        item.addEventListener('click', linkEvCl)
+    })
 
 // burgerTrigger.style.display = '';
